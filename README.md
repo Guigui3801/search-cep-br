@@ -1,70 +1,108 @@
-# 📍 CEP Search BR
+# CEP Search BR
 
 [![npm version](https://badge.fury.io/js/cep-search-br.svg)](https://badge.fury.io/js/cep-search-br)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Coverage Status](https://coveralls.io/repos/github/Guigui3801/search-cep-br/badge.svg?branch=main)](https://coveralls.io/github/Guigui3801/search-cep-br?branch=main)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+[![Coverage Status](https://coveralls.io/repos/github/Guigui3801/search-cep-br/badge.svg?branch=main)](https://coveralls.io/github/Guigui3801/search-cep-br?branch=main)
 
-Uma biblioteca simples e eficiente para busca de CEPs brasileiros utilizando a API do ViaCEP.
+Uma biblioteca Node.js para consulta de CEPs brasileiros utilizando a API ViaCEP.
 
-## 🚀 Instalação
+## 📦 Instalação
 
-Instale a biblioteca usando npm ou yarn:
+Instale via npm:
 
-```sh
-npm install search-cep-br
+```bash
+npm install cep-search-br
 ```
 
-ou
+Ou via yarn:
 
-```sh
-yarn add search-cep-br
+```bash
+yarn add cep-search-br
 ```
 
-## 🌎 Como Usar
+## 🚀 Como usar
 
-Basta importar a biblioteca e chamar a função de busca por CEP:
-
+### Importação
 ```javascript
-import searchCep from "search-cep-br";
+// CommonJS
+const { getAddressByCep } = require('cep-search-br');
 
-async function buscarEndereco() {
+// ES Modules
+import { getAddressByCep } from 'cep-search-br';
+```
+
+### Exemplo básico
+```javascript
+getAddressByCep('01001000')
+  .then(console.log)
+  .catch(console.error);
+```
+
+### Exemplo com async/await
+```javascript
+async function getCEPInfo() {
   try {
-    const endereco = await searchCep("01001000");
-    console.log(endereco);
+    const cepInfo = await getAddressByCep('01001000');
+    console.log(cepInfo);
   } catch (error) {
-    console.error("❌ Erro ao buscar CEP:", error);
+    console.error('Erro ao buscar CEP:', error.message);
   }
 }
-
-buscarEndereco();
 ```
 
-### ✅ Retorno esperado:
+## 📋 Retorno da API
+
+A função retorna um objeto com a seguinte estrutura:
 
 ```json
 {
   "cep": "01001-000",
   "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
   "bairro": "Sé",
-  "cidade": "São Paulo",
-  "estado": "SP"
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
 }
 ```
 
-## 📌 API
+## ⚙️ Parâmetros
 
-### `searchCep(cep: string): Promise<Object>`
+| Parâmetro | Tipo   | Obrigatório | Formato     | Exemplo    |
+|-----------|--------|-------------|-------------|------------|
+| cep       | string | sim         | 8 dígitos   | "01001000" |
 
-- 🏷 **cep**: String contendo apenas números do CEP.
-- 🔄 **Retorno**: Um objeto com os dados do endereço ou um erro caso o CEP não seja encontrado.
+## ❌ Tratamento de erros
 
-## 🤝 Contribuição
+A função pode lançar os seguintes erros:
 
-💡 Tem uma ideia para melhorar a biblioteca? Fique à vontade para contribuir! Abra uma issue ou envie um pull request no [GitHub](https://github.com/seu-usuario/search-cep-br).
+- `TypeError('CEP deve ser uma string')`
+- `Error('CEP inválido')` - Quando não tem 8 dígitos
+- `Error('CEP não encontrado')` - Quando o CEP não existe
+- `Error('Erro na requisição')` - Erros de conexão
 
-## 📜 Licença
+## 🧪 Testes
 
-Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Cobertura de testes de 100% com Jest:
 
-🔎 **Feito para facilitar suas buscas!** 🚀
+```bash
+npm test
+```
+
+## 🤝 Quer contribuir para o projeto?
+
+1. Faça um fork do projeto
+2. Crie uma branch (`git checkout -b feature/fooBar`)
+3. Commit suas mudanças (`git commit -am 'Add some fooBar'`)
+4. Push para a branch (`git push origin feature/fooBar`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+MIT © G.C. Rodrigues
+
+Feito com ❤️ por G.C. Rodrigues - ✉️ [caixeta299@gmail.com]

@@ -1,0 +1,1 @@
+export {default as getAddressByCep} from './getAddressByCep'

@@ -7,20 +7,33 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "coverage": "nyc --reporter=lcov --reporter=text npm test",
-    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "coverage": "jest --coverage",
+  "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build"
   },
   "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
     "include": [
       "src/**/*.ts"
     ],
     "exclude": [
+      "**/*.test.ts",
       "**/*.spec.ts",
-      "**/*.test.ts"
-    ]
+      "test/**"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "all": true,
+    "check-coverage": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100
   },
   "keywords": [],
   "author": "",

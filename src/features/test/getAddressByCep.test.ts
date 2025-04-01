@@ -1,5 +1,5 @@
 import { Cep } from "../../@types";
-import getAddressByCep from "../getCepByAddress";
+import getAddressByCep from "../getAddressByCep";
 import { CepService } from "../../services";
 
 jest.mock("../../services/Cep.service");

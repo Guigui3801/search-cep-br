@@ -1,7 +1,8 @@
 {
   "name": "cep-search-br",
   "version": "1.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsnd --respawn ./src/index.ts",
     "test": "jest",

@@ -1,6 +1,6 @@
 {
   "name": "cep-search-br",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,7 +9,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "coverage": "jest --coverage",
-  "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build"
   },

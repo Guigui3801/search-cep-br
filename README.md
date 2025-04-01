@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/cep-search-br.svg)](https://badge.fury.io/js/cep-search-br)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Coverage Status](https://coveralls.io/repos/github/seu-usuario/cep-search-br/badge.svg?branch=main)](https://coveralls.io/github/seu-usuario/cep-search-br?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/Guigui3801/cep-search-br/badge.svg?branch=main)](https://coveralls.io/github/Guigui3801/cep-search-br?branch=main)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 Uma biblioteca simples e eficiente para busca de CEPs brasileiros utilizando a API do ViaCEP.

@@ -30,6 +30,6 @@ function getData<T>(response: AxiosResponse<T>) {
   return response.data;
 }
 
-// Http.defaults.baseURL = 'https://viacep.com.br/ws'
+Http.defaults.baseURL = 'https://viacep.com.br/ws'
 
 export default HttpConfig;
